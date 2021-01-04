@@ -4,20 +4,22 @@
 * Constraints
 * ------------------
 *
-* Goal: Implementation of generic function `processItems` is broken. Generic type `T` is not enough so let's fix it!
-* 
+* Goal: Implementation of generic function `processItems` is broken.
+*       Generic type `T` is not enough so let's fix it!
+*
 * Hint: https://www.typescriptlang.org/docs/handbook/generics.html
 */
 
-interface Book {
+interface Item {
     id: number;
     name: string;
+}
+
+interface Book extends Item {
     author: string;
 }
 
-interface Video {
-    id: number;
-    name: string;
+interface Video extends Item {
     length: number;
 }
 
@@ -26,7 +28,7 @@ const books: Book[] = [
     { id: 2, name: 'When: The Scientific Secrets of Perfect Timing', author: 'Daniel H. Pink' },
     { id: 3, name: 'Total Recall: My Unbelievably True Life Story', author: 'Arnold Schwarzenegger' },
     { id: 4, name: 'Wyloguj swój mózg', author: 'Anders Hansen' }
-]
+];
 
 const videos: Video[] = [
     { id: 1, name: 'Ciekawostki o typach', length: 17 },
@@ -34,9 +36,9 @@ const videos: Video[] = [
     { id: 3, name: 'TypeScript na Backendzie', length: 13 },
     { id: 4, name: 'TypeScript i Frameworki Front-Endowe', length: 19 },
     { id: 5, name: 'Poznaj TypeScript', length: 22 }
-]
+];
 
-function processItems<T>(items: T[]): T[] {
+function processItems<T extends Item>(items: T[]): Item[] {
     return items
         .filter(({ id }) => id > 2)
         .map(({ id, name }) => ({ id, name }));
@@ -49,8 +51,8 @@ const processedVideos = processItems(videos);
 
 test('should return only some specific books', () => {
     expect(processedBooks.length).toBe(2);
-})
+});
 
 test('should return only some specific videos', () => {
     expect(processedVideos.length).toBe(3);
-})
+});

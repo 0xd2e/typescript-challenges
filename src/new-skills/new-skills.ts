@@ -5,7 +5,7 @@
 * ------------------
 *
 * Goal: Make sure that `johnDoe` can build his impressive resume. Do not use classes.
-* 
+*
 * Hint: https://www.typescriptlang.org/docs/handbook/advanced-types.html#intersection-types
 */
 
@@ -21,26 +21,36 @@ interface Teacher {
     teach(): string;
 }
 
-type SkilledPerson = Singer;
+type SkilledPerson = Singer & Dancer & Teacher;
 
-const johnDoe: SkilledPerson = {}
+const johnDoe: SkilledPerson = {
+    sing() {
+        return 'I can sing!';
+    },
+    dance() {
+        return 'I can dance!';
+    },
+    teach() {
+        return 'I can teach!';
+    }
+};
 
 function buildResume(person: SkilledPerson) {
     const skills = [
         person.dance(),
         person.sing(),
         person.teach()
-    ]
+    ];
     return skills;
 }
 
 /* Do not modify tests */
 
 test('should build an impressive resume', () => {
-    const resume = buildResume(johnDoe)
+    const resume = buildResume(johnDoe);
     expect(resume).toStrictEqual([
         'I can dance!',
         'I can sing!',
         'I can teach!'
-    ])
-})
+    ]);
+});
