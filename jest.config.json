@@ -1,0 +1,12 @@
+{
+  "bail": 0,
+  "errorOnDeprecated": false,
+  "injectGlobals": true,
+  "testEnvironment": "node",
+  "testMatch": [
+    "<rootDir>/src/**/*.test.js",
+    "<rootDir>/__tests__/**/*.js"
+  ],
+  "testTimeout": 5000,
+  "verbose": false
+}
