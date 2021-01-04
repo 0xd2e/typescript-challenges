@@ -4,6 +4,7 @@
   "description": "A set of challenges helping you understand basics of TypeScript",
   "main": "index.js",
   "scripts": {
+    "lint": "eslint --fix --report-unused-disable-directives --max-warnings=-1 ./src/**/*.ts",
     "test:warm-up": "tsc src/warm-up/warm-up.ts --outFile src/warm-up/warm-up.test.js && jest src/warm-up",
     "test:media": "tsc src/media/media.ts --outFile src/media/media.test.js && jest src/media",
     "test:shortcuts": "tsc src/shortcuts/shortcuts.ts --outFile src/shortcuts/shortcuts.test.js && jest src/shortcuts",
@@ -33,6 +34,10 @@
   "devDependencies": {
     "@types/jest": "^26.0.19",
     "@types/node": "^14.14.19",
+    "@typescript-eslint/eslint-plugin": "^4.11.1",
+    "@typescript-eslint/parser": "^4.11.1",
+    "@typescript-eslint/typescript-estree": "^4.11.1",
+    "eslint": "^7.17.0",
     "jest": "^26.6.3"
   }
 }

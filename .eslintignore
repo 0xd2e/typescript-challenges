@@ -1,0 +1,10 @@
+node_modules/
+jspm_packages/
+bower_components/
+coverage/
+.npm/
+.git/
+.vscode/
+__tests__/
+src/**/*.js
+.tsbuildinfo

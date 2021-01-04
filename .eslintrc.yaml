@@ -1,0 +1,64 @@
+---
+root: true
+plugins:
+  - "@typescript-eslint"
+extends:
+  - "eslint:recommended"
+  - "plugin:@typescript-eslint/eslint-recommended"
+  - "plugin:@typescript-eslint/recommended"
+  - "plugin:@typescript-eslint/recommended-requiring-type-checking"
+env:
+  browser: false
+  node: true
+  commonjs: false
+  shared-node-browser: false
+  es6: true
+  es2017: true
+  es2020: true
+  worker: false
+  jest: true
+  serviceworker: false
+  webextensions: false
+parser: "@typescript-eslint/parser"
+parserOptions:
+  project: "tsconfig.eslint.json"
+  ecmaVersion: 11 # ES2020
+  sourceType: "script"
+  ecmaFeatures:
+    globalReturn: false
+    impliedStrict: false
+    jsx: false
+rules:
+  indent:
+    - "error"
+    - 4
+    - VariableDeclarator: "first"
+  line-comment-position: "off"
+  linebreak-style:
+    - "error"
+    - "unix"
+  max-len:
+    - "error"
+    - code: 110
+      tabWidth: 4
+  no-bitwise: "off"
+  no-continue: "off"
+  no-multiple-empty-lines:
+    - "error"
+    - max: 2
+      maxEOF: 1
+  no-param-reassign: "off"
+  no-plusplus: "off"
+  no-restricted-syntax:
+    - "error"
+    - "WithStatement"
+  quotes:
+    - "error"
+    - "single"
+  quote-props:
+    - "error"
+    - "consistent-as-needed"
+    - keywords: true
+  semi:
+    - "error"
+    - "always"
